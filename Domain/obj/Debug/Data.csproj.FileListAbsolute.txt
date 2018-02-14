@@ -1,0 +1,2 @@
+C:\Users\Vijender Kumar\Downloads\Compressed\DapperSample-master\Domain\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Vijender Kumar\Downloads\Compressed\DapperSample-master\Domain\obj\Debug\Data.csproj.CoreCompileInputs.cache

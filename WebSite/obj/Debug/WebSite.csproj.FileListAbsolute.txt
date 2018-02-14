@@ -1,0 +1,4 @@
+C:\Users\Vijender Kumar\Downloads\Compressed\DapperSample-master\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+C:\Users\Vijender Kumar\Downloads\Compressed\DapperSample-master\WebSite\obj\Debug\WebSite.csproj.CoreCompileInputs.cache
+E:\-- Projects 2017 --\Identity2\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\-- Projects 2017 --\Identity2\WebSite\obj\Debug\WebSite.csproj.CoreCompileInputs.cache
