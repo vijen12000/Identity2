@@ -1,5 +1,5 @@
-﻿using Identity;
-using Identity.Entities;
+﻿using Core.Entities;
+using Identity;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace WebSite.Models
 {
     public class AppMember : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppMember, int> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppMember, string> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);

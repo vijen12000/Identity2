@@ -1,0 +1,27 @@
+﻿@using WebSite.Models
+@model LoginModel
+@{
+    ViewBag.Title = "Log in";
+}
+<h2>Login</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Auth", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.EditorForModel()
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-primary" />
+                        @Html.ActionLink("Forgot Password?", "forgotpassword",null,new {@class="pull-right" })
+                    </div>
+                </div>                
+            }
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

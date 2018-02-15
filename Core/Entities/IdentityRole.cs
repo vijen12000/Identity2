@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Core.Entities
 {
-    public class IdentityRole : IdentityRole<int>
+    public class IdentityRole : IdentityRole<string>
     {
         public IdentityRole()
         {
@@ -45,6 +45,10 @@ namespace Core.Entities
 
         public virtual TKey Id { get; set; }
         public virtual string Name { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string LastUpdatedBy { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
         public virtual ICollection<TRoleClaim> Roles { get; } = new List<TRoleClaim>();
         public virtual ICollection<TUserRole> Users { get; } = new List<TUserRole>();
     }

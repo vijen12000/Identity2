@@ -1,16 +1,16 @@
-using Data.Application;
-using Data.Contexts;
-using Data.Repositories;
-using Data.Entities;
-using Data.Service;
-using Identity.Stores;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System;
 using WebSite.Models;
-using Identity.Entities;
-using Identity.Repositories;
 using Microsoft.AspNet.Identity;
+using Identity.Infrastructure.Contexts;
+using Core.Repositories;
+using Core.Entities;
+using Identity.Infrastructure.Repositories;
+using Identity.Infrastructure.Stores;
+using Microsoft.Owin.Security;
+using System.Web;
+using WebSite.Core;
 
 namespace WebSite
 {
@@ -44,24 +44,15 @@ namespace WebSite
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
-
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<DbContext>(new PerRequestLifetimeManager());
 
-
-            container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IProductService, ProductService>();
-            container.RegisterType<IProductApp, ProductApp>();
-
-            container.RegisterType<IUserRepository<int, IdentityUser, Identity.Entities.IdentityUserRole<int>, Identity.Entities.IdentityRoleClaim<int>>, UserRepository<int, IdentityUser, Identity.Entities.IdentityUserRole<int>, Identity.Entities.IdentityRoleClaim<int>>>();
-            container.RegisterType<IRoleRepository<int, IdentityRole, IdentityUserRole<int>, IdentityRoleClaim<int>>, RoleRepository<int, IdentityRole, IdentityUserRole<int>, IdentityRoleClaim<int>>> ();
+            container.RegisterType<IUserRepository<string, IdentityUser, IdentityUserRole<string>, IdentityRoleClaim<string>>, UserRepository<string, IdentityUser, IdentityUserRole<string>, IdentityRoleClaim<string>>>();
+            container.RegisterType<IRoleRepository<string, IdentityRole, IdentityUserRole<string>, IdentityRoleClaim<string>>, RoleRepository<string, IdentityRole, IdentityUserRole<string>, IdentityRoleClaim<string>>> ();
             container.RegisterType<AppUserManager>(new PerRequestLifetimeManager());
             container.RegisterType<AppSignInManager>(new PerRequestLifetimeManager());
-            container.RegisterType<UserStore<int, AppMember, IdentityUserRole<int>, IdentityRoleClaim<int>>>(new PerRequestLifetimeManager());
-            container.RegisterType<RoleStore<int, IdentityRole, IdentityUserRole<int>, IdentityRoleClaim<int>>>(new PerRequestLifetimeManager());
+            container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => System.Web.HttpContext.Current.GetOwinContext().Authentication));
+            container.RegisterType<UserStore<string, AppMember, IdentityUserRole<string>, IdentityRoleClaim<string>>>(new PerRequestLifetimeManager());
+            container.RegisterType<RoleStore<string, IdentityRole, IdentityUserRole<string>, IdentityRoleClaim<string>>>(new PerRequestLifetimeManager());
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model WebSite.Models.ViewUserModel
+@{
+    ViewBag.Title = "View";
+}
+<h2>User Info</h2>
+@foreach (var prop in ViewData.ModelMetadata.Properties
+    .Where(p => p.ShowForEdit))
+{
+    <div class="form-group">
+        @Html.BootstrapLabel(prop.PropertyName)
+        <div class="col-md-10">
+            <label>@prop.Model</label>
+        </div>
+    </div>
+}
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-sm btn-warning btn-flat pull-left" })
+    </div>
+</div>
+
+

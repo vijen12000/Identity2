@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebSite.Core.Model.ExtendedUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-header with-border">
+                <h3 class="panel-title">Users</h3>
+                <div class="box-tools pull-right">
+                    @*<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>*@
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    @if (Model.Any())
+                    {
+                        <table class="table no-margin">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="row-link" data-link="row">
+                                @foreach (var user in Model)
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>@Html.ActionLink(@user.FullName, "View", "User", routeValues: new { id = user.Id }, htmlAttributes: null)</td>
+                                        <td>
+                                            @user.Email
+                                        </td>
+                                        <td>@Html.ActionLink("Edit", "Edit", "User", routeValues: new { id = user.Id }, htmlAttributes: null) | @Html.ActionLink("Delete", "Delete", "User", routeValues: new { id = user.Id }, htmlAttributes: null)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No records found!</p>
+                    }
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="panel-footer clearfix">
+                @Html.ActionLink("New User", "New", null, new { @class = "btn btn-sm btn-info btn-flat pull-left" })
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Core.Entities
 {
-    public class IdentityUser : IdentityUser<int>
+    public class IdentityUser : IdentityUser<string>
     {
         public IdentityUser()
         {
@@ -43,6 +43,10 @@ namespace Core.Entities
         public IdentityUser()
         {
             // Id = Guid.NewGuid().ToString();
+            CreatedDate = DateTime.Now;
+            LastUpdatedDate = DateTime.Now;
+            CreatedBy = Guid.Empty.ToString();
+            LastUpdatedBy = Guid.Empty.ToString();
         }
 
         /// <summary>
@@ -121,6 +125,14 @@ namespace Core.Entities
         /// User's name
         /// </summary>
         public string UserName { get; set; }
+
+        public string CreatedBy { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public string LastUpdatedBy { get; set; }
+
+        public DateTime LastUpdatedDate { get; set; }
 
         public override string ToString()
         {

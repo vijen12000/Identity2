@@ -23,3 +23,28 @@ E:\-- Projects 2017 --\Identity2\Domain\bin\Debug\Newtonsoft.Json.xml
 E:\-- Projects 2017 --\Identity2\Domain\bin\Debug\Dapper.xml
 E:\-- Projects 2017 --\Identity2\Domain\obj\Debug\Identity.Infrastructure.dll
 E:\-- Projects 2017 --\Identity2\Domain\obj\Debug\Identity.Infrastructure.pdb
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Identity.Infrastructure.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Identity.Infrastructure.pdb
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Identity.Core.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Newtonsoft.Json.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Owin.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Dapper.dll
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Identity.Core.pdb
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Newtonsoft.Json.xml
+D:\-- Projects --\-- Identity --\Domain\bin\Debug\Dapper.xml
+D:\-- Projects --\-- Identity --\Domain\obj\Debug\Identity.Infrastructure.csprojResolveAssemblyReference.cache
+D:\-- Projects --\-- Identity --\Domain\obj\Debug\Identity.Infrastructure.csproj.CoreCompileInputs.cache
+D:\-- Projects --\-- Identity --\Domain\obj\Debug\Identity.Infrastructure.dll
+D:\-- Projects --\-- Identity --\Domain\obj\Debug\Identity.Infrastructure.pdb

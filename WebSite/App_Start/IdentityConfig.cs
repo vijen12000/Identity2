@@ -1,6 +1,6 @@
-﻿using Identity;
-using Identity.Entities;
-using Identity.Stores;
+﻿using Core.Entities;
+using Identity;
+using Identity.Infrastructure.Stores;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -12,120 +12,90 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using WebSite.Core.Model;
 using WebSite.Models;
 
 namespace WebSite
 {
-    public class EmailService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
-        }
-    }
+    //public class AppUserManager : UserManager<ExtendedUser, string>
+    //{
+    //    public AppUserManager(UserStore<ExtendedUser, string> store)
+    //        : base(store)
+    //    {
 
-    public class SmsService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your SMS service here to send a text message.
-            return Task.FromResult(0);
-        }
-    }
+    //    }
 
-    // Configure the application AppMember manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class AppUserManager : UserManager<AppMember, int>
-    {
-        public AppUserManager(IUserStore<AppMember,int> store)
-            : base(store)
-        {
-           
-        }
+    //    public static AppUserManager Create(IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
+    //    {
+    //        var container = UnityConfig.GetConfiguredContainer();
+    //        var userStore = container.Resolve<UserStore<string, ExtendedUser, IdentityUserRole<string>, IdentityRoleClaim<string>>>();
 
-        public static AppUserManager Create(IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
-        {
+    //        var manager = new AppUserManager(userStore);
 
-            var container = UnityConfig.GetConfiguredContainer();
-            var userStore = container.Resolve<UserStore<int, AppMember, IdentityUserRole<int>, IdentityRoleClaim<int>>>();
-            var manager = new AppUserManager(userStore);
-            
-            // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<AppMember, int>(manager)
-            {
-                AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
-            };
+    //        // Configure validation logic for usernames
+    //        manager.UserValidator = new UserValidator<ExtendedUser, string>(manager)
+    //        {
+    //            AllowOnlyAlphanumericUserNames = false,
+    //            RequireUniqueEmail = true
+    //        };
 
-            // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = false,
-                RequireUppercase = false,
-            };
+    //        // Configure validation logic for passwords
+    //        manager.PasswordValidator = new PasswordValidator
+    //        {
+    //            RequiredLength = 6,
+    //            RequireNonLetterOrDigit = false,
+    //            RequireDigit = false,
+    //            RequireLowercase = false,
+    //            RequireUppercase = false,
+    //        };
 
-            // Configure AppMember lockout defaults
-            manager.UserLockoutEnabledByDefault = false;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+    //        manager.UserLockoutEnabledByDefault = false;
+    //        manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    //        manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the AppMember
-            // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<AppMember, int>
-            {
-                MessageFormat = "Your security code is {0}"
-            });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<AppMember, int>
-            {
-                Subject = "Security Code",
-                BodyFormat = "Your security code is {0}"
-            });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
-            if (dataProtectionProvider != null)
-            {
-                manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<AppMember, int>(dataProtectionProvider.Create("ASP.NET Identity"));
-            }
-            return manager;
-        }
-    }
+    //        manager.EmailService = new EmailService(); // Not configured, can be implemented when required
+    //        manager.SmsService = new SmsService(); // Not configured, can be implemented when required
 
-    public class AppRoleManager : RoleManager<IdentityRole,int>
-    {
-        public AppRoleManager(IRoleStore<IdentityRole, int> roleStore)
-            : base(roleStore)
-        {
-        }
+    //        var dataProtectionProvider = options.DataProtectionProvider;
+    //        if (dataProtectionProvider != null)
+    //        {
+    //            manager.UserTokenProvider =
+    //                new DataProtectorTokenProvider<ExtendedUser, string>(dataProtectionProvider.Create("Icreon Identity Provider"));
+    //        }
+    //        return manager;
+    //    }
+    //}
 
-        public static AppRoleManager Create(IdentityFactoryOptions<AppRoleManager> options, IOwinContext context)
-        {
-            var container = UnityConfig.GetConfiguredContainer();
-            var roleStore = container.Resolve<RoleStore<int, IdentityRole, IdentityUserRole<int>, IdentityRoleClaim<int>>>();
-            return new AppRoleManager(roleStore);
-        }
-    }
+    //public class AppRoleManager : RoleManager<IdentityRole, string>
+    //{
+    //    public AppRoleManager(IRoleStore<IdentityRole, string> roleStore)
+    //        : base(roleStore)
+    //    {
+    //    }
 
-    // Configure the application sign-in manager which is used in this application.
-    public class AppSignInManager : SignInManager<AppMember, int>
-    {
-        public AppSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
+    //    public static AppRoleManager Create(IdentityFactoryOptions<AppRoleManager> options, IOwinContext context)
+    //    {
+    //        var container = UnityConfig.GetConfiguredContainer();
+    //        var roleStore = container.Resolve<RoleStore<string, IdentityRole, IdentityUserRole<string>, IdentityRoleClaim<string>>>();
+    //        return new AppRoleManager(roleStore);
+    //    }
+    //}
 
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(AppMember AppMember)
-        {
-            return AppMember.GenerateUserIdentityAsync((AppUserManager)UserManager);
-        }
+    //public class AppSignInManager : SignInManager<ExtendedUser, string>
+    //{
+    //    public AppSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager)
+    //        : base(userManager, authenticationManager)
+    //    {
+    //    }
 
-        public static AppSignInManager Create(IdentityFactoryOptions<AppSignInManager> options, IOwinContext context)
-        {
-            return new AppSignInManager(context.GetUserManager<AppUserManager>(), context.Authentication);
-        }
-    }
+    //    public override Task<ClaimsIdentity> CreateUserIdentityAsync(ExtendedUser user)
+    //    {
+    //        return user.GenerateUserIdentityAsync((AppUserManager)UserManager);
+    //    }
+
+    //    public static AppSignInManager Create(IdentityFactoryOptions<AppSignInManager> options, IOwinContext context)
+    //    {
+    //        return new AppSignInManager(context.GetUserManager<AppUserManager>(), context.Authentication);
+    //    }
+    //}
 }

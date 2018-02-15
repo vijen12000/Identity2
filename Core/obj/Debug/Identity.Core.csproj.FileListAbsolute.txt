@@ -21,3 +21,26 @@ E:\-- Projects 2017 --\Identity2\Core\obj\Debug\Identity.Core.csprojResolveAssem
 E:\-- Projects 2017 --\Identity2\Core\obj\Debug\Identity.Core.csproj.CoreCompileInputs.cache
 E:\-- Projects 2017 --\Identity2\Core\obj\Debug\Identity.Core.dll
 E:\-- Projects 2017 --\Identity2\Core\obj\Debug\Identity.Core.pdb
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Identity.Core.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Identity.Core.pdb
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Dapper.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Newtonsoft.Json.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Owin.dll
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Dapper.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\-- Projects --\-- Identity --\Core\bin\Debug\Newtonsoft.Json.xml
+D:\-- Projects --\-- Identity --\Core\obj\Debug\Identity.Core.csprojResolveAssemblyReference.cache
+D:\-- Projects --\-- Identity --\Core\obj\Debug\Identity.Core.csproj.CoreCompileInputs.cache
+D:\-- Projects --\-- Identity --\Core\obj\Debug\Identity.Core.dll
+D:\-- Projects --\-- Identity --\Core\obj\Debug\Identity.Core.pdb
